@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+
+          - id: USER-SERVICE
+            uri:
+              lb://USER-SERVICE
+            predicates:
+              - Path=/user/**
+
+          - id: CARD-SERVICE
+            uri:
+              lb://CARD-SERVICE
+            predicates:
+              - Path=/card/**
